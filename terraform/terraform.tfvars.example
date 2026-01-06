@@ -1,0 +1,76 @@
+# ============================================================
+# FILE: terraform.tfvars.example
+# PURPOSE: Template showing all required variable values
+# ============================================================
+# HOW TO USE:
+# 1. Copy this file: cp terraform.tfvars.example terraform.tfvars
+# 2. Fill in your real values in terraform.tfvars
+# 3. NEVER commit terraform.tfvars to Git (it's in .gitignore)
+#
+# This example file IS committed to Git (no real secrets here)
+# so other developers know what values they need to provide.
+# ============================================================
+
+# -----------------------------------
+# GCP SETTINGS - Fill these in after creating your GCP project
+# -----------------------------------
+
+# Found in: GCP Console > Select Project dropdown (top of page)
+# Format: my-project-123456 (letters, numbers, hyphens)
+gcp_project_id = "YOUR-GCP-PROJECT-ID-HERE"
+
+# Found in: GCP Console > Home > Project Info card (right side)
+# Format: 123456789012 (just numbers)
+gcp_project_number = "YOUR-GCP-PROJECT-NUMBER-HERE"
+
+# Leave as default unless you want a different region
+gcp_region = "us-central1"
+gcp_zone   = "us-central1-a"
+
+# -----------------------------------
+# ENVIRONMENT
+# -----------------------------------
+environment = "dev"
+
+# -----------------------------------
+# NETWORKING
+# -----------------------------------
+# Leave defaults unless you have IP conflicts with existing networks
+vpc_cidr            = "10.0.0.0/16"
+public_subnet_cidr  = "10.0.1.0/24"
+private_subnet_cidr = "10.0.2.0/24"
+sql_subnet_cidr     = "10.0.3.0/24"
+
+# -----------------------------------
+# DATABASE - Choose your own password
+# -----------------------------------
+db_name     = "insurance_db"
+db_user     = "insurance_app"
+
+# IMPORTANT: Choose a strong password (12+ chars, mixed case, numbers, symbols)
+# Example format - DO NOT use this exact password:
+db_password = "CHOOSE-A-STRONG-PASSWORD-HERE!"
+db_tier     = "db-f1-micro"
+
+# -----------------------------------
+# APPLICATION
+# -----------------------------------
+# Update this AFTER you build and push your Docker image
+# Format: gcr.io/YOUR_PROJECT_ID/insurance-api:latest
+api_image          = "gcr.io/YOUR-GCP-PROJECT-ID-HERE/insurance-api:latest"
+api_min_instances  = 0
+api_max_instances  = 3
+
+# -----------------------------------
+# AZURE - Fill in after creating Azure account
+# -----------------------------------
+# Found in: Azure Portal > Subscriptions > Your subscription
+# Format: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (UUID format)
+azure_subscription_id = "YOUR-AZURE-SUBSCRIPTION-ID-HERE"
+azure_location        = "East US"
+
+# -----------------------------------
+# NOTIFICATIONS
+# -----------------------------------
+# Your email address to receive system alerts
+alert_email = "your-email@example.com"
