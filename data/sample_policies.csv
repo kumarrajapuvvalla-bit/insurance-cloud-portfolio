@@ -1,0 +1,11 @@
+policy_id,customer_name,policy_type,premium_amount,coverage_amount,start_date,end_date,status
+POL-001,John Smith,auto,120.50,25000.00,2024-01-01,2025-01-01,active
+POL-002,Sarah Johnson,home,85.00,350000.00,2024-03-15,2025-03-15,active
+POL-003,Michael Brown,life,200.00,500000.00,2023-06-01,2033-06-01,active
+POL-004,Emily Davis,health,450.00,1000000.00,2024-01-01,2025-01-01,active
+POL-005,Robert Wilson,auto,95.75,20000.00,2023-08-01,2024-08-01,expired
+POL-006,Jennifer Martinez,home,110.00,425000.00,2024-05-01,2025-05-01,active
+POL-007,David Anderson,auto,135.00,30000.00,2024-02-15,2025-02-15,active
+POL-008,Lisa Thompson,life,175.00,250000.00,2022-01-01,2032-01-01,active
+POL-009,James Garcia,health,380.00,750000.00,2024-04-01,2025-04-01,active
+POL-010,Mary Rodriguez,home,92.50,280000.00,2024-01-01,2025-01-01,active
