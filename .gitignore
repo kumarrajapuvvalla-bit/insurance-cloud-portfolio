@@ -1,0 +1,66 @@
+# ============================================
+# .gitignore - Files Git should NEVER track
+# ============================================
+# WHY THIS FILE EXISTS:
+# Git tracks every file in your project by default.
+# Some files are dangerous to share publicly (passwords, keys)
+# and some are just unnecessary clutter (temp files).
+# This file tells Git to ignore them completely.
+# ============================================
+
+# --------------------------
+# TERRAFORM - Secret Files
+# --------------------------
+# terraform.tfvars contains your real passwords and project IDs
+# NEVER commit this - it would expose your credentials publicly
+*.tfvars
+
+# Terraform creates these folders when it runs
+# They contain downloaded provider plugins (huge files, not needed in Git)
+.terraform/
+.terraform.lock.hcl
+
+# Terraform saves its "memory" of what it built in these files
+# These can contain sensitive data about your infrastructure
+*.tfstate
+*.tfstate.backup
+*.tfstate.*.backup
+
+# Terraform plan output - can contain sensitive values
+*.tfplan
+
+# --------------------------
+# PYTHON - Unnecessary Files
+# --------------------------
+# Python creates these when it runs your code - not needed in Git
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment folder - too large and machine-specific
+venv/
+.venv/
+env/
+
+# --------------------------
+# GOOGLE CLOUD - Secret Files
+# --------------------------
+# Service account keys - EXTREMELY sensitive, treat like passwords
+# If leaked, someone can control your entire GCP project
+*-key.json
+service-account-key.json
+credentials.json
+
+# --------------------------
+# GENERAL - Clutter Files
+# --------------------------
+# Mac creates this hidden file in every folder - useless for others
+.DS_Store
+
+# VS Code settings - personal preference, others may use different editors
+.vscode/
+
+# Environment variable files - often contain secrets
+.env
+.env.local
