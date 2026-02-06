@@ -319,4 +319,20 @@ curl https://YOUR_LOAD_BALANCER_IP/api/v1/policies
 
 ---
 
-*Built as a portfolio project to demonstrate enterprise DevOps and cloud architecture skills.*
+## Known Limitations
+
+These are real gaps I'm aware of — things I'd address before calling this production-ready:
+
+- **No database migrations tool.** Schema changes are currently applied manually via `psql`. In production this would use Flyway or Alembic with versioned migration scripts run as part of the CI/CD pipeline.
+
+- **Dialogflow CX flows not in Terraform.** The agent shell is provisioned via Terraform but intents, flows, and pages are configured manually in the console. Exporting and version-controlling the agent blob is on the backlog.
+
+- **Load balancer costs ~$18/month even at zero traffic.** The forwarding rule is always billed. For a portfolio project that's not actively being demonstrated, running `terraform destroy -target=google_compute_global_forwarding_rule.https_forwarding_rule` saves cost.
+
+- **Single region only.** Everything deploys to `us-central1`. A real insurance platform would need multi-region failover for the database and at least a secondary Cloud Run region behind the load balancer.
+
+- **No WAF.** Cloud Armor (GCP's WAF) is not configured. The load balancer has no rate limiting or DDoS protection rules beyond what GCP provides by default.
+
+---
+
+*Built as a portfolio project to demonstrate enterprise cloud architecture and DevOps skills.*
